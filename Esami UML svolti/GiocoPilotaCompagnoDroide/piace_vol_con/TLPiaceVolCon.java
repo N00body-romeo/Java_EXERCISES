@@ -1,0 +1,30 @@
+package piace_vol_con;
+
+// import ..
+
+public class TLPiaceVolCon {
+    private Pilota pilota;
+    private Droide droide;
+    
+    public TLPiaceVolCon(Pilota p, Droide d) throws RuntimeException {
+        if (p == null || d == null)
+            throw new RuntimeException("riferimenti null");
+        
+        this.pilota = p;
+        this.droide = d;
+    }
+    
+    public Pilota getPilota() { return pilota; }
+    public Droide getDroide() { return droide; }
+    
+    public boolean equals(Object o) {
+        if (o == null || !o.getClass().equals(this.getClass())) return false;
+        
+        TLPiaceVolCon l = (TLPiaceVolCon) o;
+        return (l.pilota == pilota && l.droide == droide);
+    }
+    
+    public int hashCode() {
+        return pilota.hashCode() + droide.hashCode();
+    }
+}
